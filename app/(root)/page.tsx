@@ -1,11 +1,12 @@
 import HeaderBox from '@/components/ui/HeaderBox'
+import RightSidebar from '@/components/ui/RightSidebar'
 import TotalBalanceBox from '@/components/ui/TotalBalanceBox'
 import { secureHeapUsed } from 'crypto'
 import React from 'react'
 
 const Home = () => {
 
-    const loggedIn = {firstName: 'Zsolt'}
+    const loggedIn = {firstName: 'Zsolt', lastName: 'Kacsor', email: 'katsa00781@gmail.com'}
   return (
     <section className='home'>
         <div className='home-content'>
@@ -20,7 +21,15 @@ const Home = () => {
             totalBanks = {1}
             totalCurrentBalance = {1250.5} />
          </header>
+
+          RECENT TRANSACTION
+
         </div>
+
+        <RightSidebar
+        user={loggedIn}
+        transactions= {[]}
+        banks={[{}, {}]} />
     </section>
   )
 }
