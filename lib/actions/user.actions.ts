@@ -5,10 +5,14 @@ import { ID } from "node-appwrite";
 import { parseStringify } from '../utils';
 
 // Bejelentkezés
-export const signIn = async () => {
+export const signIn = async ({email, password}: signInProps) => {
     try {
 
-        // Mutation / Database / Make fetch
+      const { account } = await createAdminClient();
+
+      const response = await account.createEmailPasswordSession(email, password)
+
+      return parseStringify(response);
         
     } catch (error) {
         console.error(error , 'SingIn error')
